@@ -66,10 +66,30 @@ a {
   font-weight: 1000;
 }
 
-.home-slider img {
+/* .home-slider img {
   position: relative;
   right: 1px;
+} */
+
+/* new Style */
+.home-slider {
+  width: 100%;
+  height: 700px;
 }
+
+.home-slider .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.home-slider .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* new style */
 
 .gallery-slider .swiper-button-prev:after,
 .gallery-slider .swiper-button-next:after {
