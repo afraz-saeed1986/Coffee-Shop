@@ -1,5 +1,6 @@
 import './globals.css'
 import AOSInit from '@/utils/aos'
+import ScrollToTop from '@/utils/ScrollToTop'
 
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body>
         <AOSInit />
         {children}
+        <ScrollToTop />
       </body>
     </html>
   )
