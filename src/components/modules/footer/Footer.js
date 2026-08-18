@@ -92,7 +92,7 @@ const Footer = () => {
       <div className="container">
         <p className={styles.copyRight}>
           {" "}
-          2023
+          2026
           <MdOutlineCopyright /> تمام حقوق متعلق است به <strong>
             قهوه ست
           </strong>{" "}
