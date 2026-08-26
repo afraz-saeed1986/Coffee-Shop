@@ -2,6 +2,8 @@ import { useState } from "react";
 import styles from "./Register.module.css";
 import Sms from "./Sms";
 import swal from "sweetalert";
+import { showSwal } from "@/utils/helpers";
+import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
 
 const Register = ({ showloginForm }) => {
   const [isRegisterWithPass, setIsRegisterWithPass] = useState(false);
@@ -15,7 +17,27 @@ const Register = ({ showloginForm }) => {
   const hideOtpForm = () => setIsRegisterWithOtp(false);
 
   const signUp = async () => {
-    // Validation
+    
+    if(!name.trim()){
+      return showSwal("نام را وارد کنید","error","تلاش مجدد");
+    }
+
+    const isValidPhone = validatePhone(phone);
+    if(!isValidPhone){
+      return showSwal("شماره تماس وارد شده معتبر نیست","error","تلاش مجدد")
+    }
+
+    if(email){
+      const isValidEmail = validateEmail(email);
+      if(!isValidEmail) {
+          return showSwal(" ایمیل وارد شده معتبر نیست","error","تلاش مجدد")
+      }
+    }
+
+    const isValidPassword = validatePassword(password);
+    if(!isValidPassword){
+        return showSwal("پسوورد وارد شده معتبر نیست","error","تلاش مجدد")
+    }
     
     const user = {name, phone, email, password};
 
@@ -27,13 +49,10 @@ const Register = ({ showloginForm }) => {
       body: JSON.stringify(user)
     });
 
-    console.log(res);
     if(res.status === 201){
-      swal({
-        title: "ثبت نام با موفقیت انجام شد",
-        icon: "success",
-        buttons:"ورود به پنل کاربری"
-      })
+      showSwal("ثبت نام با موفقیت انجام شد","success","ورود به پنل کاربری");
+    } else if (res.status === 422) {
+      showSwal("کاربری با این اطلاعات وجود دارد","error","تلاش مجدد")
     }
     
   };
