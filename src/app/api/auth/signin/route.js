@@ -10,7 +10,7 @@ import connectToDB from "@/configs/db";
 
 export async function POST(req) {
   try {
-    connectToDB();
+    await connectToDB();
     
     const body = await req.json();
     const { email, password } = body;
