@@ -3,7 +3,7 @@ import styles from "./Register.module.css";
 import Sms from "./Sms";
 import swal from "sweetalert";
 import { showSwal } from "@/utils/helpers";
-import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
+import { validateEmail, validatePassword, validatePhone } from "@/utils/auth-validation";
 
 const Register = ({ showloginForm }) => {
   const [isRegisterWithPass, setIsRegisterWithPass] = useState(false);

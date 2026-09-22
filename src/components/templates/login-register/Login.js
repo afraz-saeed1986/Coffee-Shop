@@ -3,7 +3,7 @@ import styles from "./Login.module.css";
 import Link from "next/link";
 import Sms from "./Sms";
 import { showSwal } from "@/utils/helpers";
-import { validateEmail, validatePassword } from "@/utils/auth";
+import { validateEmail, validatePassword } from "@/utils/auth-validation";
 const Login = ({showRegisterForm}) => {
 
   const [isLoginWithOtp,setIsLoginWithOtp] = useState(false);
